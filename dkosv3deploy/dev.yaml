@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: docker-perl-mojolicious
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-perl-mojolicious
+  template:
+    metadata:
+      labels:
+        app: docker-perl-mojolicious
+    spec:
+      containers:
+      - image: idock.daumkakao.io/bravo-gwak/docker-perl-mojolicious:latest
+        imagePullPolicy: Always
+        name: docker-perl-mojolicious
+        resources: {}
+----
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-perl-mojolicious
+  namespace: default
+spec:
+  type: NodePort
+  clusterIP: 10.231.27.53
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 30614
+    port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: docker-perl-mojolicious
