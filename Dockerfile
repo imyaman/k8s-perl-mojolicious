@@ -10,6 +10,7 @@ RUN useradd -u 500 -r -g mojo -d /home/mojo -m -s /sbin/nologin -c "Mojolicious 
 WORKDIR /home/mojo
 COPY . .
 RUN chown -R mojo:mojo *
+RUN chmod a+rx app.pl
 
 # run
 WORKDIR /home/mojo
