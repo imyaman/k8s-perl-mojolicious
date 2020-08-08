@@ -1,0 +1,13 @@
+{
+  "name": "Web On and Off",
+  "short_name": "On and Off",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "A simply readable Hacker News app.",
+  "icons": [{
+    "src": "onandoff_626x626.jpg",
+    "sizes": "626x626",
+    "type": "image/jpg"
+  }]
+}
